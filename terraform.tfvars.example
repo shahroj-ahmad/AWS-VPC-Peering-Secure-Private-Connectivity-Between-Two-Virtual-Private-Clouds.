@@ -1,0 +1,31 @@
+# ==============================================================================
+# EWB AWS VPC Peering - Example Variables Configuration
+# Copy this file to "terraform.tfvars" and customize with your own values:
+#   cp terraform.tfvars.example terraform.tfvars
+# ==============================================================================
+
+# AWS Region where the lab will be deployed (e.g., ap-south-1 for Mumbai, us-east-1 for N. Virginia)
+aws_region = "ap-south-1"
+
+# Your name for resource tagging compliance
+student_name = "YourName"
+
+# YOUR CURRENT PUBLIC IP ADDRESS (MUST BE FORMATTED WITH /32)
+# Find your public IP by running: curl -s https://checkip.amazonaws.com
+# Example: If your IP is 203.0.113.45, set: "203.0.113.45/32"
+# NEVER use "0.0.0.0/0"
+my_ip = "203.0.113.45/32"
+
+# EC2 Key Pair Name (must exist in AWS or provide public_key_path below)
+key_name = "ewb-lab"
+
+# Optional: Path to your public key if you want Terraform to upload it automatically.
+# If you created and downloaded ewb-lab.pem from AWS Console, leave this empty ("").
+public_key_path = ""
+
+# EC2 Instance Type (t3.micro is eligible for Free Tier)
+instance_type = "t3.micro"
+
+# Route and Security rule toggles for experiment checkpoints
+enable_peering_routes  = true
+enable_app_b_icmp_rule = true
